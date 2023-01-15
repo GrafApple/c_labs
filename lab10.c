@@ -46,11 +46,18 @@ int main ()
     int n;
     printf("Razmer n -> ");
     scanf("%d", &n);
-    int *a=(int *)malloc(n*sizeof(int));
+    if (n!=0)
+    {
+        int *a=(int *)malloc(n*sizeof(int));
     if (!a)
         fail();
     fill(n,a);
     printf("%lf\n",chas(n,a));
     free(a);
+    }
+    else
+    {
+        printf("Error\n");
+    }
     return 0;
 }
