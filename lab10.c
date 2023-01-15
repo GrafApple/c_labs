@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -8,33 +8,33 @@ void fail()
     exit(EXIT_FAILURE);
 }
 
-void fill(int n, int m, int *a)
+void fill(int n, int *a)
 {
     int i, j;
     printf("Starting matrix: \n");
     for (i = 0; i < n; i++)
     {
-        for (j = 0; j < m; j++)
-            printf("%4d", a[i*m+j] = rand () % 101-50);
+        for (j = 0; j < n; j++)
+            printf("%4d", a[i*n+j] = rand () % 101-50);
         printf("\n");
     }
 }
 
-double chas(int n, int m, int *a)
+double chas(int n, int *a)
 {
     int j,i;
     double dia=0,pr=0,ch;
     for (i = 0; i < n; i++)
     {
-        for (j = 0; j < m; j++)
+        for (j = 0; j < n; j++)
             if(i==j) 
-                dia+=a[i*m+j];
+                dia+=a[i*n+j];
     }
     for (i = 0; i < n; i++)
     {
-        for (j = 0; j < m; j++)
+        for (j = 0; j < n; j++)
             {
-                pr+=a[i*m+j]*a[j*m+i];
+                pr+=a[i*n+j]*a[j*n+i];
             }
     }
     ch=dia/pr;
@@ -43,16 +43,14 @@ double chas(int n, int m, int *a)
 int main ()
 {
     srand(time(NULL));
-    int n, m;
-    printf("Number of lines n -> ");
+    int n;
+    printf("Razmer n -> ");
     scanf("%d", &n);
-    printf("Number of columns m -> ");
-    scanf("%d", &m);
-    int *a=(int *)malloc(n*m*sizeof(int));
+    int *a=(int *)malloc(n*sizeof(int));
     if (!a)
         fail();
-    fill(n, m, a);
-    printf("%lf\n",chas(n,m,a));
+    fill(n,a);
+    printf("%lf\n",chas(n,a));
     free(a);
     return 0;
 }
