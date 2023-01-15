@@ -8,7 +8,7 @@ int main()
     char str[255];
     fgets(str,255,stdin);//считывает символы из потока и сохраняет их в виде строки
     int i=0,sim=1,slv=1;
-    while(str[i]==' ' || str[i]==',' || str[i]=='.')
+    while(str[i]==' ' || str[i]==', ' || str[i]=='. ')
     {
         i++;
     }
@@ -18,7 +18,7 @@ int main()
             {
                 printf("%c",str[i]);
             }
-        if (str[i]==' ' || str[i]==',' || str[i]=='.') 
+        if (str[i]==' ' || str[i]==', ' || str[i]=='. ') 
             {
                 slv++;
                 sim=0;
