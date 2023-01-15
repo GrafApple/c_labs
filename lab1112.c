@@ -6,7 +6,7 @@ struct Friend
 {
     char surname[32];
     char name[32];
-    char patronymic[32];
+    char middle_name[32];
     char birthdate[32];
     char address[64];
     char phone[16];
@@ -17,7 +17,7 @@ void print_friends()
 {
 for (int i = 0; i < friend_count; i++) 
 {
-    printf("%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].patronymic, friends[i].birthdate, friends[i].address, friends[i].phone);
+    printf("%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
 }
 }
 
@@ -27,8 +27,8 @@ void add_friend()
     scanf("%s", friends[friend_count].surname);
     printf("Enter friend's name: ");
     scanf("%s", friends[friend_count].name);
-    printf("Enter friend's patronymic: ");
-    scanf("%s", friends[friend_count].patronymic);
+    printf("Enter friend's middle_name: ");
+    scanf("%s", friends[friend_count].middle_name);
     printf("Enter friend's birthdate (dd.mm.yyyy): ");
     scanf("%s", friends[friend_count].birthdate);
     printf("Enter friend's address: ");
@@ -60,7 +60,7 @@ void save_friends_to_file()
     FILE *f = fopen("friends.txt", "w");
     for (int i = 0; i < friend_count; i++) 
     {
-        fprintf(f, "%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].patronymic, friends[i].birthdate, friends[i].address, friends[i].phone);
+        fprintf(f, "%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
     }
     fclose(f);
 }
@@ -69,7 +69,7 @@ void load_friends_from_file()
 {
     FILE *f = fopen("friends.txt", "r");
     friend_count = 0;
-    while (fscanf(f, "%s %s %s %s %s %s\n", friends[friend_count].surname, friends[friend_count].name, friends[friend_count].patronymic, friends[friend_count].birthdate, friends[friend_count].address, friends[friend_count].phone) != EOF) 
+    while (fscanf(f, "%s %s %s %s %s %s\n", friends[friend_count].surname, friends[friend_count].name, friends[friend_count].middle_name, friends[friend_count].birthdate, friends[friend_count].address, friends[friend_count].phone) != EOF) 
     {
     friend_count++;
     }
@@ -87,7 +87,7 @@ void get_friends_by_birthmonth()
         sscanf(friends[i].birthdate, "%*d.%d.%*d", &fmonth);
         if (fmonth == month) 
         {
-            printf("%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].patronymic, friends[i].birthdate, friends[i].address, friends[i].phone);
+            printf("%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
         }
     }
 }
