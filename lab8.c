@@ -80,6 +80,5 @@ int main()
     }
     printf("\n");
     printf("count = %d", count);
-    printf("\n");
     return 0;
 }
