@@ -15,9 +15,10 @@ int friend_count = 0;
 
 void print_friends() 
 {
-for (int i = 0; i < friend_count; i++) 
+    printf("Friends\n");
+    for (int i = 0; i < friend_count; i++) 
 {
-    printf("%s %s %s %s %s %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
+    printf("FIO: %s %s %s, Birthdate: %s, Address: %s,  Phone num: %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
 }
 }
 
@@ -33,7 +34,7 @@ void add_friend()
     scanf("%s", friends[friend_count].birthdate);
     printf("Enter friend's address: ");
     scanf("%s", friends[friend_count].address);
-    printf("Enter friend's phone: ");
+    printf("Enter friends phone: ");
     scanf("%s", friends[friend_count].phone);
     friend_count++;
 }
@@ -122,5 +123,5 @@ int main()
         }
     } while (choice != 5);
     save_friends_to_file();
-    return 0;
+    return 100;
 }
