@@ -18,7 +18,7 @@ void print_friends()
     printf("Friends\n");
     for (int i = 0; i < friend_count; i++) 
 {
-    printf("FIO: %s %s %s, Birthdate: %s, Address: %s,  Phone num: %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
+    printf("FIO: %s %s %s, Birthdate: %s, Street: %s,  Phone num: %s\n", friends[i].surname, friends[i].name, friends[i].middle_name, friends[i].birthdate, friends[i].address, friends[i].phone);
 }
 }
 
@@ -32,7 +32,7 @@ void add_friend()
     scanf("%s", friends[friend_count].middle_name);
     printf("Enter friend's birthdate (dd.mm.yyyy): ");
     scanf("%s", friends[friend_count].birthdate);
-    printf("Enter friend's address: ");
+    printf("Enter friend's street: ");
     scanf("%s", friends[friend_count].address);
     printf("Enter friends phone: ");
     scanf("%s", friends[friend_count].phone);
@@ -44,6 +44,7 @@ void delete_friend()
     int index;
     printf("Enter index of friend to delete: ");
     scanf("%d", &index);
+    index--;
     if (index < 0 || index >= friend_count) 
     {
         printf("Invalid index\n");
@@ -123,5 +124,5 @@ int main()
         }
     } while (choice != 5);
     save_friends_to_file();
-    return 100;
+    return 0;
 }
